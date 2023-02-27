@@ -1,4 +1,4 @@
-class spiele {
+class Spiele {
     constructor() {
         this.stadt = [
             "Kabul",
@@ -2439,7 +2439,7 @@ class spiele {
         ];
     }
 
-    startWith(b) {
+    anfängtmit(b) {
         const stadtBuch = this.suche(this.stadt, b);
         const länderBuch = this.suche(this.länder2, b);
         const flussBuch = this.suche(this.flusse, b);
@@ -2505,8 +2505,7 @@ const prompt = require("prompt-sync")();
 // //
 // // get input from the user.
 // //
-const start = new spiele();
+const start = new Spiele();
 const b = prompt("Bitte gib einen Buchstaben ein: ");
 
-
-console.log(start.startWith(b));
+console.log(start.anfängtmit(b));

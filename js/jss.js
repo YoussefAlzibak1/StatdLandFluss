@@ -1,4 +1,4 @@
-let länder=[
+let länder = [
     { country: "Afghanistan", capital: "Kabul" },
     { country: "Albanien", capital: "Tirana" },
     { country: "Algerien", capital: "Algier" },
@@ -134,7 +134,7 @@ let länder=[
     { country: "Nepal", capital: "Kathmandu" },
     { country: "Niederlande", capital: "Amsterdam" },
     { country: "Neuseeland", capital: "Wellington" },
-   { country: "Nicaragua", capital: "Managua" },
+    { country: "Nicaragua", capital: "Managua" },
     { country: "Niger", capital: "Niamey" },
     { country: "Nigeria", capital: "Abuja" },
     { country: "Norwegen", capital: "Oslo" },
@@ -241,11 +241,9 @@ function toArry(string1, key, letter) {
     ];
 }
 function findElementsStartingWith(array, letter) {
-    const sort = array.filter(
-        (element) => element[1] == letter);
+    const sort = array.filter((element) => element[1] == letter);
     return sort[Math.floor(Math.random() * sort.length)];
 }
-
 
 // obj sort function
 
@@ -277,8 +275,6 @@ console.log(findElementsStartingWith(ffff, "g"));
 // // const letterCountries2 = getCountriesWithLetter2();
 // // console.log(letterCountries2);
 
-
-
 // function findElementsStartingWith(array, letter) {
 //     let filteredArray = [];
 //     for (let i = 0; i < array.length; i++) {
@@ -290,7 +286,6 @@ console.log(findElementsStartingWith(ffff, "g"));
 // }
 
 // console.log(findElementsStartingWith(...ffff, "a"));
-
 
 function toArry(string1, key, letter) {
     let gefundeneElement = [];
@@ -321,38 +316,32 @@ function toArry(string1, key, letter) {
     ];
 }
 
-
-
-
 function stringToObjct(string, letter, objKey) {
     const geräteArray = string.split(/[,\n\s]+/).sort();
 
     const result = [];
 
-  function iterate(index) {
-    if (index === geräteArray.length) {
-      return; // Rekursionsabbruch, wenn alle Elemente überprüft wurden
+    function iterate(index) {
+        if (index === geräteArray.length) {
+            return; // Rekursionsabbruch, wenn alle Elemente überprüft wurden
+        }
+
+        const gerät = geräteArray[index];
+
+        if (gerät.toLowerCase().startsWith(letter.toLowerCase())) {
+            // Wenn das Gerät mit dem Buchstaben beginnt, dann ein Objekt mit der Eigenschaft "Gerät" erstellen
+            const obj = {};
+            obj[objKey] = gerät;
+            result.push(obj); // Das erstellte Objekt zum Ergebnis-Array hinzufügen
+        }
+
+        iterate(index + 1); // Rekursion mit dem nächsten Element im Array fortsetzen
     }
 
-    const gerät = geräteArray[index];
+    iterate(0);
 
-    if (gerät.toLowerCase().startsWith(letter.toLowerCase())) {
-      // Wenn das Gerät mit dem Buchstaben beginnt, dann ein Objekt mit der Eigenschaft "Gerät" erstellen
-      const obj = {};
-      obj[objKey] = gerät;
-      result.push(obj); // Das erstellte Objekt zum Ergebnis-Array hinzufügen
-    }
-
-    iterate(index + 1); // Rekursion mit dem nächsten Element im Array fortsetzen
-  }
-
-  iterate(0);
-
-  return result[Math.floor(Math.random() * result.length)];
+    return result[Math.floor(Math.random() * result.length)];
 }
-
-
-
 
 // let neuObj = stringToObjct(haussHallt, "T", "Gäret");
 // let neueObjSuche=  neuObj[Math.floor(Math.random() * neuObj.length)]
