@@ -808,7 +808,7 @@ class spiele {
             "Yale",
             "Yuri",
         ];
-        this.hausHaltsGerät = [
+        this.hausHalts = [
             "Abfalleimer",
             "Akkuschrauber",
             "Apfelentkerner",
@@ -2444,7 +2444,7 @@ class spiele {
         const länderBuch = this.suche(this.länder2, b);
         const flussBuch = this.suche(this.flusse, b);
         const namenBuch = this.suche(this.namen, b);
-        const hausHaltsGerätBuch = this.suche(this.hausHaltsGerät, b);
+        const hausHaltsBuch = this.suche(this.hausHalts, b);
         const pflanzeBuch = this.suche(this.pflanze, b);
         const tierBuch = this.suche(this.tier, b);
         const berufBuch = this.suche(this.beruf, b);
@@ -2467,8 +2467,8 @@ class spiele {
             chalk.red("Name:") +
             namenBuch +
             " " +
-            chalk.red("HausHaltsGerät:") +
-            hausHaltsGerätBuch +
+            chalk.red("HausHalts:") +
+            hausHaltsBuch +
             " " +
             chalk.red("Pflanze:") +
             pflanzeBuch +

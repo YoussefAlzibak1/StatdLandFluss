@@ -405,7 +405,7 @@ let namen = [
     "Yale",
     "Yuri",
 ];
-let hausHaltsGerät = [
+let hausHalts = [
     "Abfalleimer",
     "Akkuschrauber",
     "Ofen",
@@ -2295,7 +2295,7 @@ function startWith(b) {
     let länderBuch = suche(länder2, b);
     let flussBuch = suche(flusse, b);
     let namenBuch = suche(namen, b);
-    let hausHaltsGerätBuch = suche(hausHaltsGerät, b);
+    let hausHaltsBuch = suche(hausHalts, b);
     let pflanzeBuch = suche(pflanze, b);
     let tierBuch = suche(tier , b);
     let berufBuch = suche(beruf , b);
@@ -2319,8 +2319,8 @@ function startWith(b) {
         chalk.red("Name:") +
         namenBuch +
         " " +
-        chalk.red("HausHaltsGerät:") +
-        hausHaltsGerätBuch +
+        chalk.red("HausHalts:") +
+        hausHaltsBuch +
         " " +
         chalk.red("Pflanze:") +
         pflanzeBuch +
