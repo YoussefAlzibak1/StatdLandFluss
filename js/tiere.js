@@ -179,7 +179,6 @@ let flusse = [
     "Ouse ",
     "Wear ",
 ];
-
 let namen = [
     "Emma",
     "Mia",
@@ -2054,7 +2053,6 @@ let sportArt = [
     "Unterwasserhockey",
     "Wing Chun",
 ];
-
 let verb = [
     "Abholen",
     "Absagen",
@@ -2398,7 +2396,6 @@ let derDieDasDes = [
     "Die Sonnencreme des Sonnenanbeters",
     "Der Hut des Touristen",
 ];
-
 let javaScriptMethoden = {
     " Array-Methoden": [
         "concat()",
@@ -2737,21 +2734,58 @@ let javaScriptSympole = {
 };
 let länder2 = [];
 let stadt = [];
+
+// Obj iterierin Länder und Haubtstadt
 for (let i = 0; i < länder.length; i++) {
     länder2.push(länder[i].country);
     stadt.push(länder[i].capital);
 }
 
+// normale suche mit anfang buchtabe
 function suche(array, letter) {
     gefundeneElement = array.filter((element) =>
         element[0].toLowerCase().startsWith(letter.toLowerCase())
     );
-
     return gefundeneElement[
         Math.floor(Math.random() * gefundeneElement.length)
     ];
 }
+// suche das 4 buchtabe wegen der die das
+function suche4(array, letter) {
+    gefundeneElement = array.filter((element) =>
+        element[4].toLowerCase().startsWith(letter.toLowerCase())
+    );
+    return gefundeneElement[
+        Math.floor(Math.random() * gefundeneElement.length)
+    ];
+}
+//suche im values Obj
+function objvalues(array, letter) {
+    let filteredArray = [];
+    let arr = Object.values(array);
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < arr[i].length; j++) {
+            if (arr[i][j][0].toLowerCase() === letter.toLowerCase()) {
+                filteredArray.push(arr[i][j]);
+            }
+        }
+    }
+    return filteredArray[Math.floor(Math.random() * filteredArray.length)];
+}
 
+////suche im Keys Obj
+function objKeys(array, letter) {
+    let filteredArray = [];
+    let arr = Object.keys(array);
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i][0].toLowerCase() === letter.toLowerCase()) {
+            filteredArray.push(arr[i]);
+        }
+    }
+    return filteredArray[Math.floor(Math.random() * filteredArray.length)];
+}
+
+// samlung der gesamte suche
 function anfängtmit(b) {
     let stadtBuch = suche(stadt, b);
     let länderBuch = suche(länder2, b);
@@ -2767,7 +2801,9 @@ function anfängtmit(b) {
     let materialBuch = suche(material, b);
     let verbBuch = suche(verb, b);
     let sportArtBuch = suche(sportArt, b);
-
+    let javaScriptMeBuch = objvalues(javaScriptMethoden, b);
+    let javaScriptKonzepteBuch = objKeys(javaScriptKonzepte, b);
+    let derDieDasDesbuch = suche4(derDieDasDes, b);
     return (
         chalk.red("Stadt :") +
         stadtBuch +
@@ -2807,6 +2843,15 @@ function anfängtmit(b) {
         " " +
         chalk.red("Verb:") +
         verbBuch +
+        " " +
+        chalk.red("DerDieDas:") +
+        derDieDasDesbuch +
+        " " +
+        chalk.red("javaScriptMethod:") +
+        javaScriptMeBuch +
+        " " +
+        chalk.red("javaScriptKonzept :") +
+        javaScriptKonzepteBuch +
         " " +
         chalk.red("SportArt:") +
         sportArtBuch
